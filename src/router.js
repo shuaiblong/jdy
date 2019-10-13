@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-09-28 17:54:07
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-12 16:09:03
+ * @LastEditTime: 2019-10-13 09:59:22
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -87,8 +87,13 @@ const router= new Router({
     },
     {
       path:'/dingdan',
-      name:'订单',
+      name:'我的订单',
       component: () => import( './views/dingdan/dingdan.vue')
+    },
+    {
+      path:'/ddxq',
+      name:'订单详情',
+      component: () => import( './views/dingdan/ddxq.vue')
     },
     {
       path: '/denglu',

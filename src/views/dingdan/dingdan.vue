@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-12 09:12:51
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-12 18:18:51
+ * @LastEditTime: 2019-10-13 09:25:39
  -->
 <!--
  * @Descripttion: 
@@ -14,6 +14,12 @@
  -->
 <template>
   <div class="dingdan">
+    <van-nav-bar
+      title="我的订单"
+      left-text
+      left-arrow
+      @click-left="onClickLft"
+    />
     <ul class="navtab">
       <li @click="cur=0">
         <span :class="cur==0?'change':''">全部</span>
@@ -32,6 +38,7 @@
       </li>
     </ul>
     <div class="tab-content">
+      <!-- 全部 -->
       <div v-show="cur==0">
         <div class="state">
             <!-- 店铺导航栏 -->
@@ -83,6 +90,7 @@
           </p>
         </div>
       </div>
+      <!-- 待付款 -->
       <div v-show="cur==1">
           <div class="state" v-for="(item,i) in list" :key="i">
             <!-- 店铺导航栏 -->
@@ -135,8 +143,11 @@
           </p>
         </div>
       </div>
+      <!-- 待发货 -->
       <div v-show="cur==2">内容三</div>
+      <!-- 待收货 -->
       <div v-show="cur==3">内容四</div>
+      <!-- 待评价 -->
       <div v-show="cur==4">内容5</div>
     </div>
   </div>
@@ -197,12 +208,35 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+    onClickLft(){
+      this.$router.go(-1)
+    }
   }
 };
 </script>
 <style scoped>
+.van-nav-bar__text {
+  font-size: 26px;
+  color: rgb(51, 51, 51);
+}
+.van-icon-arrow-left:before {
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+}
+.van-nav-bar__title {
+  font-size: 32px;
+  font-weight: 600;
+}
 .dingdan {
   text-align: left;
+  background: #f5f5f5;
+  height: 100vh;
+}
+.navtab{
+  background: #ffffff;
+  border-top: 2px solid rgb(245,245,245);
 }
 .navtab li {
   float: left;
@@ -245,6 +279,9 @@ export default {
 }
 .state {
   padding: 30px;
+  background: #ffffff;
+  margin: 20px;
+  border-radius: 10px;
 }
 .veimg {
   width: 158px;

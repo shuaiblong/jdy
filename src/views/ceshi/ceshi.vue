@@ -3,114 +3,164 @@
  * @Author: chenjia
  * @Date: 2019-10-09 19:07:21
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-09 19:07:21
+ * @LastEditTime: 2019-10-13 14:10:53
  -->
 <template>
   <div>
-    <van-checkbox-group class="card-goods" v-model="checkedGoods">
-      <van-checkbox
-        class="card-goods__item"
-        v-for="item in goods"
-        :key="item.id"
-        :name="item.id"
-      >
-        <van-card
-          :title="item.title"
-          :desc="item.desc"
-          :num="item.num"
-          :price="formatPrice(item.price)"
-          :thumb="item.thumb"
-        />
-      </van-checkbox>
-    </van-checkbox-group>
-    <van-submit-bar
-      :price="totalPrice"
-      :disabled="!checkedGoods.length"
-      :button-text="submitBarText"
-      @submit="onSubmit"
-    />
+    <div class="state">
+            <!-- 店铺导航栏 -->
+          <div class="stanav">
+            <span class="zhuan">
+                <!-- 类型店铺 icon图固定不用动-->
+              <i class="iconfont icon-dianpu"></i> 
+               专营店
+              <van-icon name="arrow" />
+            </span>
+            <!-- 商品状态(代付款发货类) -->
+            <span class="huo">已发货</span>
+          </div>
+          <ul class="xqshop">
+
+            <li>
+                <!-- 商品图片v-for循环 -->
+              <img
+                src="//img12.360buyimg.com/n1/jfs/t30052/127/1612053323/198563/aba0f961/5ce647f6Ndace9815.jpg"
+                class="veimg"
+              />
+            </li>
+            
+            <li class="xqtitle">
+                <!-- 商品介绍v-for循环 -->
+                <p class="xqtitlep">
+                    120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V
+                </p>
+                <!-- 商品名字数量 -->
+                <p class="xqguige">酒红色,L x1</p>
+            </li>
+            <li class="xqpic">
+                <!-- 商品价格 -->
+                <p class="xqpir">￥113.80</p>
+                <!-- 商品个数 -->
+                <p class="xqnum">x1</p>
+            </li>
+          </ul>
+          <ul class="xqshop">
+
+            <li>
+                <!-- 商品图片v-for循环 -->
+              <img
+                src="//img12.360buyimg.com/n1/jfs/t30052/127/1612053323/198563/aba0f961/5ce647f6Ndace9815.jpg"
+                class="veimg"
+              />
+            </li>
+            
+            <li class="xqtitle">
+                <!-- 商品介绍v-for循环 -->
+                <p class="xqtitlep">
+                    120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V
+                </p>
+                <!-- 商品名字数量 -->
+                <p class="xqguige">酒红色,L x1</p>
+            </li>
+            <li class="xqpic">
+                <!-- 商品价格 -->
+                <p class="xqpir">￥113.80</p>
+                <!-- 商品个数 -->
+                <p class="xqnum">x1</p>
+            </li>
+          </ul>
+  </div>
   </div>
 </template>
-
 <script>
-import { Checkbox, CheckboxGroup, Card, SubmitBar, Toast } from 'vant';
 export default {
-  components: {
-    [Card.name]: Card,
-    [Checkbox.name]: Checkbox,
-    [SubmitBar.name]: SubmitBar,
-    [CheckboxGroup.name]: CheckboxGroup
-  },
-  data() {
-    return {
-      checkedGoods: ['1', '2', '3'],
-      goods: [{
-        id: '1',
-        title: '进口香蕉',
-        desc: '约250g，2根',
-        price: 200,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/2f9a36046449dafb8608e99990b3c205.jpeg'
-      }, {
-        id: '2',
-        title: '陕西蜜梨',
-        desc: '约600g',
-        price: 690,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg'
-      }, {
-        id: '3',
-        title: '美国伽力果',
-        desc: '约680g/3个',
-        price: 2680,
-        num: 1,
-        thumb: 'https://img.yzcdn.cn/public_files/2017/10/24/320454216bbe9e25c7651e1fa51b31fd.jpeg'
-      }]
-    };
-  },
-  computed: {
-    submitBarText() {
-      const count = this.checkedGoods.length;
-      return '结算' + (count ? `(${count})` : '');
-    },
-    totalPrice() {
-      return this.goods.reduce((total, item) => total + (this.checkedGoods.indexOf(item.id) !== -1 ? item.price : 0), 0);
-    }
-  },
-  methods: {
-    formatPrice(price) {
-      return (price / 100).toFixed(2);
-    },
-    onSubmit() {
-      Toast('点击结算');
-    }
-  }
-};
+  
+}
 </script>
-
-<style lang="less">
-.card-goods {
-  padding: 10px 0;
-  background-color: #fff;
-  &__item {
-    position: relative;
-    background-color: #fafafa;
-    .van-checkbox__label {
-      width: 100%;
-      height: auto; // temp
-      padding: 0 10px 0 15px;
-      box-sizing: border-box;
-    }
-    .van-checkbox__icon {
-      top: 50%;
-      left: 10px;
-      z-index: 1;
-      position: absolute;
-      margin-top: -10px;
-    }
-    .van-card__price {
-      color: #f44;
-    }
-  }
+<style scoped>
+  .change {
+  color: #ff6d15;
+  border-bottom: 4px solid #ff6d15;
+}
+.icon-dianpu {
+  font-size: 26px;
+}
+.zhuan {
+  font-size: 26px;
+  float: left;
+  display: inline-flex;
+  align-items: center;
+}
+.huo {
+  color: #ff6d15;
+  font-size: 26px;
+  float: right;
+}
+.state {
+  padding: 30px;
+  background: #ffffff;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+.veimg {
+  width: 158px;
+  height: 158px;
+  margin-right: 30px;
+}
+.stanav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.xqshop li{
+    float: left;
+}
+.xqshop::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.xqtitle{
+    width: 306px;
+    
+}
+.xqtitlep{
+    font-size: 24px;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /*设置省略号在容器第四行文本后*/
+    -webkit-line-clamp: 2; 
+    overflow: hidden;
+}
+.xqguige{
+    margin-top: 10px;
+    font-size: 22px;
+    color: rgb(153, 153, 153);
+}
+.xqpic{
+    float: right !important;
+    text-align: right;
+}
+.xqpir{
+    margin: 0;
+    font-size: 24px;
+}
+.xqnum{
+    margin-top: 10px;
+    font-size: 22px;
+    color: rgb(153, 153, 153);
+}
+.xqshop{
+    margin-top: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(245, 245, 245);
+}
+.total{
+    text-align: right;
+}
+.totnum{
+    font-size: 24px;
 }
 </style>

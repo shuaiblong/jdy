@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-11 11:38:44
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-11 17:17:55
+ * @LastEditTime: 2019-10-13 10:05:13
  -->
 <template>
   <div>
@@ -288,7 +288,7 @@ export default {
       this.$router.push("/");
     },
     onClickLft() {
-      this.$toast("返回");
+      this.$router.go("-1");
     },
     onClickRight() {
       this.$toast("管理");
