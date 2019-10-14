@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-09-28 17:54:07
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-13 09:59:22
+ * @LastEditTime: 2019-10-14 14:50:31
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -11,7 +11,7 @@ import Router from 'vue-router'
 import index from './views/index/index.vue'
 
 Vue.use(Router)
-const router= new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -23,22 +23,22 @@ const router= new Router({
     {
       path: '/login',
       name: '登录',
-      component: () => import( './views/login/login.vue')
+      component: () => import('./views/login/login.vue')
     },
     {
       path: '/regist',
       name: '注册',
-      component: () => import( './views/regist/regist.vue')
+      component: () => import('./views/regist/regist.vue')
     },
     {
       path: '/forget',
       name: '忘记密码',
-      component: () => import( './views/forget/forget.vue')
+      component: () => import('./views/forget/forget.vue')
     },
     {
       path: '/naifen',
       name: '奶粉专区',
-      component: () => import( './views/naifen/naifen.vue')
+      component: () => import('./views/naifen/naifen.vue')
     },
     {
       path: '/sou',
@@ -48,22 +48,22 @@ const router= new Router({
     {
       path: '/fenlei',
       name: '分类',
-      component: () => import( './views/fenlei/fenlei.vue')
+      component: () => import('./views/fenlei/fenlei.vue')
     },
     {
       path: '/shopcar',
       name: '购物车空',
-      component: () => import( './views/shopcar/shopcar.vue')
+      component: () => import('./views/shopcar/shopcar.vue')
     },
     {
       path: '/shopche',
       name: '购物车有',
-      component: () => import( './views/shopcar/shopche.vue')
+      component: () => import('./views/shopcar/shopche.vue')
     },
     {
-      path:'/ceshi',
-      name:'测试',
-      component: () => import( './views/ceshi/ceshi.vue')
+      path: '/ceshi',
+      name: '测试',
+      component: () => import('./views/ceshi/ceshi.vue')
     },
     {
       path: '/xbannerlist',
@@ -86,14 +86,24 @@ const router= new Router({
       component: () => import('./views/pingjia/pingjia.vue')
     },
     {
-      path:'/dingdan',
-      name:'我的订单',
-      component: () => import( './views/dingdan/dingdan.vue')
+      path: '/dingdan',
+      name: '我的订单',
+      component: () => import('./views/dingdan/dingdan.vue')
     },
     {
-      path:'/ddxq',
-      name:'订单详情',
-      component: () => import( './views/dingdan/ddxq.vue')
+      path: '/daifu',
+      name: '发起代付请求',
+      component: () => import('./views/dingdan/daifu.vue')
+    },
+    {
+      path: '/ddxq',
+      name: '订单详情',
+      component: () => import('./views/dingdan/ddxq.vue')
+    },
+    {
+      path: '/zhifu',
+      name: '支付',
+      component: () => import('./views/dingdan/zhifu.vue')
     },
     {
       path: '/denglu',
