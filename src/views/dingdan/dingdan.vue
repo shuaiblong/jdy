@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-12 09:12:51
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-14 17:50:23
+ * @LastEditTime: 2019-10-15 19:36:59
  -->
 <!--
  * @Descripttion: 
@@ -90,11 +90,11 @@
             <span class="zhuan">
               <!-- 类型店铺 icon图固定不用动-->
               <i class="iconfont icon-dianpu"></i>
-              {{item.dianpu}}
+              {{item.dian}}
               <van-icon name="arrow" />
             </span>
             <!-- 商品状态(代付款发货类) -->
-            <span class="huo">{{item.zhuangtai}}</span>
+            <span class="huo">{{item.zhangtai}}</span>
           </div>
           <ul class="xqshop">
             <li>
@@ -113,21 +113,21 @@
             </li>
             <li class="xqpic">
               <!-- 商品价格 -->
-              <p class="xqpir">￥{{item.pic}}</p>
+              <p class="xqpir">￥{{item.price}}</p>
               <!-- 商品个数 -->
-              <p class="xqnum">x{{item.number}}</p>
+              <p class="xqnum">{{item.guige}}</p>
             </li>
           </ul>
           <p class="total">
             <!-- 需要多少商品 -->
             <span class="totnum">共{{item.number}}件商品</span>
             <!-- 合计多少钱 -->
-            <span class="totpic">合计：￥{{item.pic*item.number}}</span>
+            <span class="totpic">合计：￥{{item.price*item.number}}</span>
           </p>
           <p class="btn">
-            <button>{{item.zai}}</button>
-            <button @click="upshow">{{item.cha}}</button>
-            <button class="xuan">{{item.que}}</button>
+            <button>{{item.button1}}</button>
+            <button @click="upshow">{{item.button2}}</button>
+            <button class="xuan">{{item.button3}}</button>
           </p>
         </div>
       </div>
@@ -185,65 +185,14 @@ export default {
     return {
       show: false,
       cur: 0,
-      list: [
-        {
-          dianpu: "新的",
-          zhuangtai: "待付款",
-          img:
-            "//img12.360buyimg.com/n1/jfs/t30052/127/1612053323/198563/aba0f961/5ce647f6Ndace9815.jpg",
-          title:
-            "120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V",
-          pic: "110.38",
-          number: "2",
-          color: "酒红色",
-          zai: "修改地址",
-          cha: "取消订单",
-          que: "待付款"
-        },
-        {
-          dianpu: "新的",
-          zhuangtai: "待付款",
-          img:
-            "//img12.360buyimg.com/n1/jfs/t30052/127/1612053323/198563/aba0f961/5ce647f6Ndace9815.jpg",
-          title:
-            "120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V",
-          pic: "110.38",
-          number: "2",
-          color: "酒红色",
-          zai: "修改地址",
-          cha: "取消订单",
-          que: "待付款"
-        },
-        {
-          dianpu: "新的",
-          zhuangtai: "待付款",
-          img:
-            "//img12.360buyimg.com/n1/jfs/t30052/127/1612053323/198563/aba0f961/5ce647f6Ndace9815.jpg",
-          title:
-            "120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V",
-          pic: "110.38",
-          number: "2",
-          color: "酒红色",
-          zai: "修改地址",
-          cha: "取消订单",
-          que: "待付款"
-        },
-        {
-          dianpu: "新的",
-          zhuangtai: "待付款",
-          img:
-            "//img12.360buyimg.com/n1/jfs/t30052/127/1612053323/198563/aba0f961/5ce647f6Ndace9815.jpg",
-          title:
-            "120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V120粒VE+120粒vc康恩贝天生素E软胶囊外部用120粒V",
-          pic: "110.38",
-          number: "2",
-          color: "酒红色",
-          zai: "修改地址",
-          cha: "取消订单",
-          que: "待付款"
-        }
-      ]
+      list: []
     };
+  },
+  created() {
+    this.axios.get("../../../public/data/lianxi.json").then(res => {
+      console.log(res.data.daifukuan[0].dianpu);
+      this.list = res.data.daifukuan[0].dianpu;
+    });
   },
   methods: {
     onClickLft() {

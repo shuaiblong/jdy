@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-09-28 17:54:07
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-14 18:31:14
+ * @LastEditTime: 2019-10-15 14:19:04
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -27,10 +27,11 @@ import './assets/iconfont/iconfont.css'
 //    threshold: 100 //手指左右滑动距离
 // }
 // session使用
-// axios.defaults.withCredentials = true;
-Vue.prototype.$http = axios;
+axios.defaults.withCredentials = true;
+Vue.prototype.axios = axios;
+axios.defaults.baseURL = 'http://192.168.0.31:5500/';
 Vue.use(Vant);
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 new Vue({
   router,
   store,

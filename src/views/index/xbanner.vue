@@ -3,125 +3,37 @@
  * @Author: chenjia
  * @Date: 2019-09-29 17:06:00
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-10 16:20:00
+ * @LastEditTime: 2019-10-15 14:14:27
  -->
 <template>
   <!-- 横向滚动后期v-for更改删除多余 -->
   <div class="xyuan">
     <div class="xnei">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
             <ul class="xbanul">
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
+              <li class="xbanli" v-for="(item,i) in xbanner" :key="i">
+                <div class="lid">
+                  <img class="liimg" :src="item.img" />
+                  <p class="lip" v-text="item.title"></p>
+                </div>
+              </li>
             </ul>
-        </div>
-        <div class="swiper-slide">
+          </div>
+          <div class="swiper-slide">
             <ul class="xbanul">
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
-                <li class="xbanli">
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                    <div class="lid">
-                      <img class="liimg" src="http://p4.music.126.net/miVlFJ99eRHrKHSYPT8EyQ==/109951164227377678.jpg?param=30y30">
-                      <p class="lip">数码家电</p>
-                    </div>
-                </li>
+              <li class="xbanli" v-for="(item,i) in xbanner" :key="i">
+                <div class="lid">
+                  <img class="liimg" :src="item.img" />
+                  <p class="lip" v-text="item.title"></p>
+                </div>
+              </li>
             </ul>
+          </div>
         </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
     </div>
   </div>
 </template>
@@ -129,18 +41,34 @@
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
 export default {
+  data() {
+    return {
+      xbanner: []
+    };
+  },
+  created() {
+    this.axios
+      .get("../../../public/data/index.json")
+      .then(res => {
+        this.xbanner = res.data.xbanner;
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
   mounted() {
     var swiper = new Swiper(".swiper-container", {
-        pagination: '.swiper-pagination',
-        paginationClickable: true
+      pagination: ".swiper-pagination",
+      paginationClickable: true
     });
   }
 };
 </script>
 <style scoped>
-.xyuan{
-    width: 710px;
-    margin: 0 auto;
+.xyuan {
+  width: 710px;
+  margin: 0 auto;
 }
 .swiper-container {
   width: 100%;
@@ -150,7 +78,7 @@ export default {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  
+
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -165,30 +93,31 @@ export default {
   -webkit-align-items: center;
   align-items: center;
 }
-.xbanul{
+.xbanul {
   width: 100%;
 }
-.xbanul .xbanli{
+.xbanul .xbanli {
   width: 20%;
   float: left;
 }
-.liimg{
-  width: 100px;
+.liimg {
+  height: 100px;
   border-radius: 50%;
 }
-.lip{
+.lip {
   margin: 0;
   font-size: 24px;
 }
-.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-    bottom: -4px;
-   
-    }
-.swiper-container{
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: -4px;
+}
+.swiper-container {
   border-radius: 10px;
   overflow: hidden;
 }
-.xnei{
+.xnei {
   width: 100%;
   padding: 0 0 10px 0;
   background: #fafafa;

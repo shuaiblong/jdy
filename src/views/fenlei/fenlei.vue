@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-03 11:03:11
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-10 18:12:14
+ * @LastEditTime: 2019-10-15 18:03:40
  -->
 
 <template>
@@ -41,28 +41,19 @@
           <!-- 轮播图 -->
           <div class="banner">
             <!-- Swiper -->
-            <div class="swiper-container">
+            <div class="swiper-container2">
               <div class="swiper-wrapper">
                 <div
                   class="swiper-slide"
-                  style="background-image:url(http://p1.music.126.net/-sDR7TAzdNva3JUZtf3iyg==/109951164415357260.jpg)"
+                  v-for="(item,index) in lunimg"
+                  :key="index"
+                  :style="h_bg(item.img)"
                 ></div>
-                <div
-                  class="swiper-slide"
-                  style="background-image:url(http://p1.music.126.net/-sDR7TAzdNva3JUZtf3iyg==/109951164415357260.jpg)"
-                ></div>
-                <div
-                  class="swiper-slide"
-                  style="background-image:url(http://p1.music.126.net/-sDR7TAzdNva3JUZtf3iyg==/109951164415357260.jpg)"
-                ></div>
-                <div
-                  class="swiper-slide"
-                  style="background-image:url(http://p1.music.126.net/-sDR7TAzdNva3JUZtf3iyg==/109951164415357260.jpg)"
-                ></div>
-                <div
-                  class="swiper-slide"
-                  style="background-image:url(http://p1.music.126.net/-sDR7TAzdNva3JUZtf3iyg==/109951164415357260.jpg)"
-                ></div>
+
+                <!-- <div class="swiper-slide" v-for="(item,index) in lunimg" :key="index" >
+                  <img :src="item.img" alt="" srcset="">
+                
+                </div>-->
               </div>
             </div>
           </div>
@@ -72,104 +63,13 @@
               <div class="fen">
                 <p class="fenp">美妆彩容</p>
                 <ul class="fenul">
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p class="tj">推荐</p>
+                  <li class="fenli" v-for="(item,i) in tuijian" :key="i">
+                    <img class="fenimg" :src="item.img" alt />
+                    <p class="tj">{{item.title}}</p>
                   </li>
                 </ul>
               </div>
             </li>
-            <li v-if="activeIndex === 1">
-              <div class="fen">
-                <p class="fenp">美妆彩容</p>
-                <ul class="fenul">
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p>底妆</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p>底妆</p>
-                  </li>
-                  <li class="fenli">
-                    <img class="fenimg" src="http://dummyimage.com/116x116" alt />
-                    <p>底妆</p>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li v-if="activeIndex === 2">aaa</li>
-            <li v-if="activeIndex === 3">bbb</li>
-            <li v-if="activeIndex === 4">ccc</li>
-            <li v-if="activeIndex === 5">ccc</li>
           </ul>
         </template>
       </van-tree-select>
@@ -185,31 +85,36 @@ import navfoot from "../../components/foot";
 export default {
   data() {
     return {
+      tuijian: [],
+      lunimg: [],
       activeIndex: 0,
-      items: [
-        { text: "为你推荐" },
-        { text: "美容彩妆" },
-        { text: "奶粉纸尿裤" },
-        { text: "母婴专区" },
-        { text: "营养保健" },
-        { text: "数据家电" },
-        { text: "个人洗护" },
-        { text: "美容彩妆" },
-        { text: "美容彩妆" },
-        { text: "美容彩妆" }
-      ]
+      items: []
     };
+  },
+  created() {
+    this.axios.get("../../../public/data/lianxi.json").then(res => {
+      console.log(res.data.fenlei[0].nav);
+      this.lunimg = res.data.fenlei[0].lunboimg;
+      this.tuijian = res.data.fenlei[0].ximg;
+      this.items = res.data.fenlei[0].nav;
+    });
   },
   components: {
     navfoot
   },
+  methods: {
+    h_bg(imgs) {
+      return "background-image: url(" + imgs + ");";
+    }
+  },
   mounted() {
-    var swiper = new Swiper(".swiper-container", {
+    /*
+    var swiper = new Swiper(".swiper-container2", {
       pagination: ".swiper-pagination",
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
-      slidesPerView: "auto",
+      loop: true,
       coverflow: {
         rotate: 50,
         stretch: 0,
@@ -217,6 +122,13 @@ export default {
         modifier: 1,
         slideShadows: true
       }
+    });
+    */
+    var swiper = new Swiper(".swiper-container2", {
+      slidesPerView: "auto",
+      paginationClickable: true,
+      observer: true, //修改swiper自己或子元素时，自动初始化swiper
+      observeParents: true //修改swiper的父元素时，自动初始化swiper
     });
   }
 };
@@ -233,6 +145,9 @@ export default {
 }
 .fenlei {
   margin-top: 100px;
+}
+.van-tree-select__content {
+  overflow: hidden;
 }
 .nav-head {
   display: flex;
@@ -329,13 +244,13 @@ export default {
   padding: 10px;
   margin-bottom: 200px;
 }
-/* .swiper-container {
+/* .swiper-container2 {
   width: 100%;
   height: 100%;
   background-position: center;
   background-size: cover;
 } */
-.swiper-container {
+.swiper-container2 {
   width: 100%;
 }
 .swiper-slide {
@@ -344,10 +259,10 @@ export default {
   width: 100%;
   height: 201px;
 }
-.van-tree-select__nav{
+.van-tree-select__nav {
   flex: 0 195px;
 }
-.tj{
+.tj {
   font-size: 24px;
   margin: 5px 0;
 }

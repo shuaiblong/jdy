@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-12 15:30:19
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-12 16:23:32
+ * @LastEditTime: 2019-10-15 17:22:14
  -->
 <template>
   <div class="goods">
@@ -32,7 +32,7 @@
         </ul>
       </div>
       <div class="in">
-        <van-icon name="search" class="sou"/>
+        <van-icon name="search" class="sou" />
         <input type="text" class="put" placeholder="搜索你想要的好物" />
       </div>
     </div>
@@ -131,7 +131,7 @@ export default {
   background-color: #5fd8cb !important;
   position: relative;
 }
-.bimai ul::after{
+.bimai ul::after {
   content: "";
   display: block;
   clear: both;
@@ -193,7 +193,7 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   text-overflow: hidden;
-  margin-left:-1px;
+  margin-left: -1px;
 }
 .van-card__desc {
   font-size: 14px;
@@ -270,26 +270,26 @@ export default {
   margin: 15px auto;
   width: 691px;
   height: 60px;
-  background: rgb(130,235,224);
+  background: rgb(130, 235, 224);
   border-radius: 50px;
   position: relative;
-} 
+}
 .put {
   width: 80%;
   height: 56px;
   font-size: 26px;
-  background: rgb(130,235,224);
+  background: rgb(130, 235, 224);
   border: 0;
 }
-.sou{
+.sou {
   color: white;
   font-size: 36px;
   position: absolute;
   top: 14px;
   left: 20px;
 }
-input::-webkit-input-placeholder{
-        text-align: center;
-        color: white;
+input::-webkit-input-placeholder {
+  text-align: center;
+  color: white;
 }
 </style>

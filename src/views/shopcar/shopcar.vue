@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-08 14:27:15
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-11 10:59:10
+ * @LastEditTime: 2019-10-15 09:57:00
  -->
 <template>
   <!-- 头部导航栏 -->
@@ -32,58 +32,19 @@
         <span class="cai">猜你喜欢</span>
       </div>
       <!-- 商品模块 -->
-      <div class="shop">
+      <div class="shop" v-for="(item,i) in shopcar" :key="i">
         <!-- 商品图 -->
-        <img
-          src="//img13.360buyimg.com/n1/jfs/t1/79548/15/10233/240977/5d79b158E23c05f34/3eaa2b0f6f7cfff2.jpg"
-          class="shopimg"
-        />
+        <img :src="item.img" class="shopimg" />
         <!-- 商品标题 -->
-        <p class="shoptitle">连帽卫衣男士19年秋冬季卡通印花新款棉质卫衣</p>
+        <p class="shoptitle" v-text="item.title"></p>
         <!-- 商品价格 -->
         <p class="shoppic">
           <!-- 正常价格 -->
-          <span class="span1">105</span>
+          <span class="span1" v-text="item.pic"></span>
           <!-- 正常价格后两位 -->
           <span class="span2">.80</span>
           <!-- 删除价格 -->
-          <s class="span3">￥505</s>
-        </p>
-      </div>
-      <div class="shop">
-        <img
-          src="//img13.360buyimg.com/n1/jfs/t1/79548/15/10233/240977/5d79b158E23c05f34/3eaa2b0f6f7cfff2.jpg"
-          class="shopimg"
-        />
-        <p class="shoptitle">连帽卫衣男士19年秋冬季卡通印花新款棉质卫衣</p>
-        <p class="shoppic">
-          <span class="span1">105</span>
-          <span class="span2">.80</span>
-          <s class="span3">￥505</s>
-        </p>
-      </div>
-      <div class="shop">
-        <img
-          src="//img13.360buyimg.com/n1/jfs/t1/79548/15/10233/240977/5d79b158E23c05f34/3eaa2b0f6f7cfff2.jpg"
-          class="shopimg"
-        />
-        <p class="shoptitle">连帽卫衣男士19年秋冬季卡通印花新款棉质卫衣</p>
-        <p class="shoppic">
-          <span class="span1">105</span>
-          <span class="span2">.80</span>
-          <s class="span3">￥505</s>
-        </p>
-      </div>
-      <div class="shop">
-        <img
-          src="//img13.360buyimg.com/n1/jfs/t1/79548/15/10233/240977/5d79b158E23c05f34/3eaa2b0f6f7cfff2.jpg"
-          class="shopimg"
-        />
-        <p class="shoptitle">连帽卫衣男士19年秋冬季卡通印花新款棉质卫衣</p>
-        <p class="shoppic">
-          <span class="span1">105</span>
-          <span class="span2">.80</span>
-          <s class="span3">￥505</s>
+          <s class="span3" v-text="item.spic"></s>
         </p>
       </div>
     </div>
@@ -94,11 +55,27 @@
 // 引入底部导航栏
 import navfoot from "../../components/foot";
 export default {
+  data() {
+    return {
+      shopcar: []
+    };
+  },
+  created() {
+    this.axios
+      .get("http://127.0.0.1:5500/" + "../../../public/data/shopcar.json")
+      .then(res => {
+        this.shopcar = res.data.shopcar;
+        console.log(res.data.shopcar);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
   components: {
     navfoot
   },
   methods: {
-    shou(){
+    shou() {
       this.$router.push("/");
     },
     onClickLft() {
@@ -177,29 +154,28 @@ export default {
 .caiimg {
   width: 32px;
   height: 32px;
-  
 }
-.xihuan{
+.xihuan {
   padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.kong{
+.kong {
   margin: 16px 0;
   font-size: 24px;
   color: rgb(51, 51, 51);
 }
-.lao{
+.lao {
   margin: 16px 0;
   font-size: 24px;
-  color: rgb(153,153,153);
+  color: rgb(153, 153, 153);
 }
-.btnshou{
-  margin:20px 0 40px 0;
-  color: rgb(255,98,26);
+.btnshou {
+  margin: 20px 0 40px 0;
+  color: rgb(255, 98, 26);
   font-size: 28px;
-  border: 1px solid rgb(255,98,26);
+  border: 1px solid rgb(255, 98, 26);
   display: inline-block;
   padding: 12px 24px;
   border-radius: 50px;
