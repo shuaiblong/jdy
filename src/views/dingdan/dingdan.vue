@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-12 09:12:51
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-15 19:36:59
+ * @LastEditTime: 2019-10-19 10:24:12
  -->
 <!--
  * @Descripttion: 
@@ -125,9 +125,9 @@
             <span class="totpic">合计：￥{{item.price*item.number}}</span>
           </p>
           <p class="btn">
-            <button>{{item.button1}}</button>
-            <button @click="upshow">{{item.button2}}</button>
-            <button class="xuan">{{item.button3}}</button>
+            <button>修改地址</button>
+            <button @click="upshow">取消订单</button>
+            <button class="xuan">待付款</button>
           </p>
         </div>
       </div>
@@ -189,10 +189,12 @@ export default {
     };
   },
   created() {
-    this.axios.get("../../../public/data/lianxi.json").then(res => {
-      console.log(res.data.daifukuan[0].dianpu);
-      this.list = res.data.daifukuan[0].dianpu;
-    });
+    this.axios
+      .get("http://192.168.0.40:5500/" + "../../../public/data/lianxi.json")
+      .then(res => {
+        console.log(res.data.daifukuan[0].dianpu);
+        this.list = res.data.daifukuan[0].dianpu;
+      });
   },
   methods: {
     onClickLft() {
@@ -223,7 +225,7 @@ export default {
 .dingdan {
   text-align: left;
   background: #f5f5f5;
-  height: 100vh;
+  height: 100%;
 }
 .navtab {
   background: #ffffff;
@@ -242,9 +244,9 @@ export default {
   font-size: 26px;
   height: 85px;
 }
-.navtab li span:visited {
+/* .navtab li span:visited {
   color: #ff6d15;
-}
+} */
 .navtab::after {
   content: "";
   display: block;

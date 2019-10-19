@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-09-28 17:54:07
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-14 14:50:31
+ * @LastEditTime: 2019-10-19 16:06:07
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -106,9 +106,24 @@ const router = new Router({
       component: () => import('./views/dingdan/zhifu.vue')
     },
     {
+      path: '/tuihuan',
+      name: '退换',
+      component: () => import('./views/shouhou/tuihuan.vue')
+    },
+    {
+      path: '/shlx',
+      name: '退换售后',
+      component: () => import('./views/shouhou/shlx.vue')
+    },
+    {
       path: '/denglu',
       name: 'denglu',
       component: () => import('./views/denglu/denglu.vue')
+    },
+    {
+      path: "/zujian",
+      name: "zujian",
+      component: () => import('./components/gou.vue')
     }
     // {
     //   path: '/about',

@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-11 11:38:44
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-15 14:01:54
+ * @LastEditTime: 2019-10-16 15:58:03
  -->
 <template>
   <div class="shopche">
@@ -101,7 +101,7 @@ export default {
   },
   created() {
     this.axios
-      .get("http://192.168.0.31:5500/" + "../../../public/data/shopcar.json")
+      .get("http://192.168.0.40:5500/" + "../../../public/data/shopcar.json")
       .then(res => {
         this.shop = res.data.shopche;
         console.log(res.data);

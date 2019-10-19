@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-09-30 16:53:37
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-15 18:23:56
+ * @LastEditTime: 2019-10-16 13:53:11
  -->
 <template>
   <!-- 商品列表 -->
@@ -13,12 +13,16 @@
         <van-row>
           <van-col span="12" v-for="(item,i) in xbannerlist" :key="i">
             <div class="jxl">
-              <img class="jxlimg" :src="item.img" alt />
-              <p class="jxlp1" v-text="item.title1"></p>
+              <!-- 图片 -->
+              <img class="jxlimg" src="/goods/2019/10/20191015193637489.mp4," alt />
+              <!-- 详情 -->
+              <p class="jxlp1" v-text="item.productName"></p>
               <div class="jxldiv">
+                <!-- 价格 -->
                 <span class="jxspan2" v-text="item.price"></span>
                 <span class="jxspan3">.80</span>
-                <span class="jxspan4" v-text="item.miaosha"></span>
+                <!-- 秒杀 -->
+                <span class="jxspan4" v-if="item.isSeckill==1">秒杀</span>
               </div>
             </div>
           </van-col>
@@ -40,10 +44,20 @@ export default {
     };
   },
   created() {
-    this.axios.get("../../../public/data/lianxi.json").then(res => {
-      console.log(res.data.jingxuan[0].xinxi);
-      this.xbannerlist = res.data.jingxuan[0].xinxi;
-    });
+    this.axios
+      .get("http://192.168.0.110/" + "goods/lists", {
+        params: {
+          page: "1",
+          limit: "6",
+          goods: ""
+        }
+      })
+      .then(res => {
+        // console.log(res.data.jingxuan[0].xinxi);
+        // this.xbannerlist = res.data.jingxuan[0].xinxi;
+        console.log(res.data.data);
+        this.xbannerlist = res.data.data;
+      });
   }
 };
 </script>

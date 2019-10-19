@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-10-03 11:03:11
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-15 18:03:40
+ * @LastEditTime: 2019-10-16 18:20:22
  -->
 
 <template>
@@ -87,17 +87,31 @@ export default {
     return {
       tuijian: [],
       lunimg: [],
-      activeIndex: 0,
+      activeIndex: "",
       items: []
     };
   },
   created() {
-    this.axios.get("../../../public/data/lianxi.json").then(res => {
-      console.log(res.data.fenlei[0].nav);
-      this.lunimg = res.data.fenlei[0].lunboimg;
-      this.tuijian = res.data.fenlei[0].ximg;
-      this.items = res.data.fenlei[0].nav;
-    });
+    this.axios
+      .get("http://192.168.0.110/" + "type/goodsTypeFirst")
+      .then(res => {
+        // this.lunimg = res.data.fenlei[0].lunboimg;
+        // this.tuijian = res.data.fenlei[0].ximg;
+        // this.items = res.data.fenlei[0].nav;
+        var arr = res.data.data;
+        console.log(arr);
+        this.items = JSON.parse(
+          JSON.stringify(arr).replace(/classifyName/g, "text")
+        );
+        console.log(this.items);
+        this.activeIndex = this.items[0].id;
+        console.log(this.activeIndex);
+      });
+    // this.axios.get("http://192.168.0.110" + "type/goodsTypeSecond",{
+    //   params:{
+    //     parentId=this.activeIndex
+    //   }
+    // })
   },
   components: {
     navfoot

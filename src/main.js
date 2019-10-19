@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-09-28 17:54:07
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-15 14:19:04
+ * @LastEditTime: 2019-10-16 15:59:30
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -29,7 +29,7 @@ import './assets/iconfont/iconfont.css'
 // session使用
 axios.defaults.withCredentials = true;
 Vue.prototype.axios = axios;
-axios.defaults.baseURL = 'http://192.168.0.31:5500/';
+axios.defaults.baseURL = 'http://192.168.0.40:5500/';
 Vue.use(Vant);
 Vue.config.productionTip = false;
 new Vue({
