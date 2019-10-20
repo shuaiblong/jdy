@@ -3,7 +3,7 @@
  * @Author: chenjia
  * @Date: 2019-09-28 17:54:07
  * @LastEditors: chenjia
- * @LastEditTime: 2019-10-19 16:06:07
+ * @LastEditTime: 2019-10-20 17:55:24
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -111,9 +111,24 @@ const router = new Router({
       component: () => import('./views/shouhou/tuihuan.vue')
     },
     {
+      path: '/pjsh',
+      name: '评价售后服务',
+      component: () => import('./views/shouhou/pingjia.vue')
+    },
+    {
+      path: '/pjfw',
+      name: '评价服务',
+      component: () => import('./views/shouhou/pjfw.vue')
+    },
+    {
       path: '/shlx',
       name: '退换售后',
       component: () => import('./views/shouhou/shlx.vue')
+    },
+    {
+      path: '/thsh',
+      name: '退换/售后',
+      component: () => import('./views/shouhou/thsh.vue')
     },
     {
       path: '/denglu',
